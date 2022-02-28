@@ -22,7 +22,7 @@ public class EmployeeService {
     List<Employee> arrEmployee = new ArrayList<>();
     Set<Employee> employeeSet = new HashSet<>();
 
-    public Employee findEmployee(Employee firstName, Employee lastName) { // поиск для использования в методах ниже
+    public Employee findEmployee(String firstName, String lastName) { // поиск для использования в методах ниже
         Employee findElement = new Employee("Ivan", "Ivanov");
         if (arrEmployee.contains(findElement)){
             return findElement;
@@ -30,13 +30,13 @@ public class EmployeeService {
         return findElement;
     }
 
-    public Employee addEmployee(Employee firstName, Employee lastName) {
+    public Employee addEmployee(String firstName, String lastName) {
         Employee newElement = new Employee("Ivan", "Ivanov");
         newElement = findEmployee(firstName, lastName);
         return add(newElement);
     }
 
-    public Employee removeEmployee(Employee firstName, Employee lastName) {
+    public Employee removeEmployee(String firstName, String lastName) {
         Employee removeElement = new Employee("Ivan", "Ivanov");
         removeElement = findEmployee(firstName, lastName);
         return remove(removeElement);
