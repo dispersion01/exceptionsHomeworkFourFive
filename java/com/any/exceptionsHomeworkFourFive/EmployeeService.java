@@ -11,19 +11,13 @@ import java.util.Set;
 public class EmployeeService {
 
 
-    /*    List<Employee> arrEmployee = List.of({
-                new Employee("Ivan", "Ivanov"),
-                new Employee("Petr", "Petrov"),
-                new Employee("Fedor", "Popov"),
-                new Employee("Mary", "Petrova"),
-                new Employee("July", "Sidorova")
-        );*/
+
 
     List<Employee> arrEmployee = new ArrayList<>();
     Set<Employee> employeeSet = new HashSet<>();
 
     public Employee findEmployee(String firstName, String lastName) { // поиск для использования в методах ниже
-        Employee findElement = new Employee("Ivan", "Ivanov");
+        Employee findElement = new Employee(firstName,  lastName);
         if (arrEmployee.contains(findElement)){
             return findElement;
         }
@@ -31,13 +25,13 @@ public class EmployeeService {
     }
 
     public Employee addEmployee(String firstName, String lastName) {
-        Employee newElement = new Employee("Ivan", "Ivanov");
+        Employee newElement = new Employee(firstName,  lastName);
         newElement = findEmployee(firstName, lastName);
         return add(newElement);
     }
 
     public Employee removeEmployee(String firstName, String lastName) {
-        Employee removeElement = new Employee("Ivan", "Ivanov");
+        Employee removeElement = new Employee(firstName,  lastName);
         removeElement = findEmployee(firstName, lastName);
         return remove(removeElement);
     }

@@ -11,7 +11,7 @@ public class Employee {
     public Employee(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
-//        this.id = counter++;
+
     }
 
 
