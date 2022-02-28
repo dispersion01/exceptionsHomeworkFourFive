@@ -10,14 +10,10 @@ import org.springframework.web.bind.annotation.RestController;
 public class EmployeeController {
 
     private EmployeeService employeeService = new EmployeeService();
-    private EmployeeService firstName;
-    private EmployeeService lastName;
 
 
     public EmployeeController(EmployeeService employeeService, EmployeeService firstName, EmployeeService lastName) {
         this.employeeService = employeeService;
-        this.firstName = firstName;
-        this.lastName = lastName;
     }
 @GetMapping
     public String helloEmployee() {
