@@ -2,19 +2,30 @@ package com.any.exceptionsHomeworkFourFive;
 
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 @Service
 public class EmployeeService {
 
 
-    Employee[] arrEmployee = new Employee[10];
+    /*    List<Employee> arrEmployee = List.of({
+                new Employee("Ivan", "Ivanov"),
+                new Employee("Petr", "Petrov"),
+                new Employee("Fedor", "Popov"),
+                new Employee("Mary", "Petrova"),
+                new Employee("July", "Sidorova")
+        );*/
 
+    List<Employee> arrEmployee = new ArrayList<>();
+    Set<Employee> employeeSet = new HashSet<>();
 
     public Employee findEmployee(Employee firstName, Employee lastName) { // поиск для использования в методах ниже
         Employee findElement = new Employee("Ivan", "Ivanov");
-        for (int i = 0; i < arrEmployee.length; i++) {
-            if (arrEmployee[i] != null && arrEmployee[i].equals(findElement) )     {
-                throw new ExceptionsEmployee();
-            }
+        if (arrEmployee.contains(findElement)){
+            return findElement;
         }
         return findElement;
     }
@@ -22,36 +33,14 @@ public class EmployeeService {
     public Employee addEmployee(Employee firstName, Employee lastName) {
         Employee newElement = new Employee("Ivan", "Ivanov");
         newElement = findEmployee(firstName, lastName);
-        for (int i = 0; i < arrEmployee.length; i++) {
-            if (arrEmployee[i] != null) {
-                throw new ExceptionsEmployee();
-            }
-            arrEmployee[i] = newElement;
-
-        }
-        return newElement;
+        return add(newElement);
     }
 
     public Employee removeEmployee(Employee firstName, Employee lastName) {
         Employee removeElement = new Employee("Ivan", "Ivanov");
         removeElement = findEmployee(firstName, lastName);
-        for (int i = 0; i < arrEmployee.length; i++) {
-            if ((findEmployee(firstName, lastName).getFirstName() == arrEmployee[i].getFirstName()) &&
-                    (findEmployee(firstName, lastName).getLastName() == arrEmployee[i].getLastName())
-            ) {
-                arrEmployee[i] = null;
-                for (int j = 0; j < arrEmployee.length; j--) {
-                    arrEmployee[j] = arrEmployee[j - 1];
-                }
-            } else {
-                throw new ExceptionsEmployee();
-            }
-
-
-        }
-        return removeElement;
+        return remove(removeElement);
     }
-
 
 
 }
